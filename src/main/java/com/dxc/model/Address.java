@@ -1,6 +1,6 @@
 package com.dxc.model;
 
-public class Address {
+public class Address extends Contactdetails {
 	int door_no;
 	String state;
 	String city;
