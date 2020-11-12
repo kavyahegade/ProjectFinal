@@ -1,6 +1,13 @@
 package com.dxc.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class SeatStatus {
+	@Id
+	@GeneratedValue
 	int seat_no;
 	String s_status;
 	public int getSeat_no() {
@@ -23,6 +30,35 @@ public class SeatStatus {
 	public SeatStatus() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((s_status == null) ? 0 : s_status.hashCode());
+		result = prime * result + seat_no;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SeatStatus other = (SeatStatus) obj;
+		if (s_status == null) {
+			if (other.s_status != null)
+				return false;
+		} else if (!s_status.equals(other.s_status))
+			return false;
+		if (seat_no != other.seat_no)
+			return false;
+		return true;
 	}
 	@Override
 	public String toString() {

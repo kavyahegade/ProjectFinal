@@ -1,6 +1,13 @@
 package com.dxc.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Employee extends User {
+	@Id
+	@GeneratedValue
 	int emp_id;
 	String designation;
 	public int getEmp_id() {
@@ -23,6 +30,35 @@ public class Employee extends User {
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((designation == null) ? 0 : designation.hashCode());
+		result = prime * result + emp_id;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		if (designation == null) {
+			if (other.designation != null)
+				return false;
+		} else if (!designation.equals(other.designation))
+			return false;
+		if (emp_id != other.emp_id)
+			return false;
+		return true;
 	}
 	@Override
 	public String toString() {

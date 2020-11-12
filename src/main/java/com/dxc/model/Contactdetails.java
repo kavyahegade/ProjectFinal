@@ -1,7 +1,13 @@
 package com.dxc.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Contactdetails {
-	
+	@Id
+	@GeneratedValue
 	int mobile_no;
 
 	public int getMobile_no() {
@@ -20,6 +26,30 @@ public class Contactdetails {
 	public Contactdetails() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + mobile_no;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Contactdetails other = (Contactdetails) obj;
+		if (mobile_no != other.mobile_no)
+			return false;
+		return true;
 	}
 
 	@Override

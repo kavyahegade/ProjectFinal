@@ -1,6 +1,13 @@
 package com.dxc.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Address extends Contactdetails {
+	@Id
+	@GeneratedValue
 	int door_no;
 	String state;
 	String city;
@@ -39,6 +46,47 @@ public class Address extends Contactdetails {
 	public Address() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((city == null) ? 0 : city.hashCode());
+		result = prime * result + ((country == null) ? 0 : country.hashCode());
+		result = prime * result + door_no;
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Address other = (Address) obj;
+		if (city == null) {
+			if (other.city != null)
+				return false;
+		} else if (!city.equals(other.city))
+			return false;
+		if (country == null) {
+			if (other.country != null)
+				return false;
+		} else if (!country.equals(other.country))
+			return false;
+		if (door_no != other.door_no)
+			return false;
+		if (state == null) {
+			if (other.state != null)
+				return false;
+		} else if (!state.equals(other.state))
+			return false;
+		return true;
 	}
 	@Override
 	public String toString() {
